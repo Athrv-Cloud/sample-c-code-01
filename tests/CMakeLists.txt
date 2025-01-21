@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 
 # Enable code coverage
 option(COVERAGE "Enable code coverage" ON)
-set(CPPUTEST_HOME "${CMAKE_SOURCE_DIR}/tools/cpputest")
-
+#set(CPPUTEST_HOME "${CMAKE_SOURCE_DIR}/tools/cpputest")
+find_package(CppUTest REQUIRED)
 # Enable coverage flags
 if(COVERAGE)
     message("Building with coverage reporting")
@@ -37,8 +37,8 @@ add_executable(MyMathTest ${TEST_SOURCES})
 
 # Link with CppUTest
 target_include_directories(MyMathTest PRIVATE ${CPPUTEST_HOME}/include)
-target_link_libraries(MyMathTest PRIVATE ${CPPUTEST_HOME}/lib/libCppUTest.a)
-
+#target_link_libraries(MyMathTest PRIVATE ${CPPUTEST_HOME}/lib/libCppUTest.a)
+target_link_libraries(MyMathTest PRIVATE CppUTest CppUTestExt)
 # Set output directory for the test executable
 set_target_properties(MyMathTest PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/tests
