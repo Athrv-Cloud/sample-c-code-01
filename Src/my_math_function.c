@@ -1,13 +1,17 @@
 #include "my_math_function.h"
+#include <stdio.h>
 
-int add(int a, int b) {
-  return a + b;
+
+int add(int a, int b) 
+{
+    return a + b;
 }
 
 int subtract(int a, int b) {
-  return a - b;
+    return a - b;
 }
 
 int multiply(int a, int b) {
     return a * b;
 }
+
